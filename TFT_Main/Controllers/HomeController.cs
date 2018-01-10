@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using System.Web.Mvc.Ajax;
 
 namespace TFT_Main.Controllers
 {
@@ -11,10 +7,16 @@ namespace TFT_Main.Controllers
     {
         public ActionResult Index()
         {
+            // Finder den kørende MVC.
             var mvcName = typeof(Controller).Assembly.GetName();
+
+            // Hvis resultatet er null findes Mono ikke og resultatet bliver false.
             var isMono = Type.GetType("Mono.Runtime") != null;
 
-            ViewData["Version"] = mvcName.Version.Major + "." + mvcName.Version.Minor;
+            // Viser den fulde version af den MVC der bliver brugt.
+            ViewData["Version"] = mvcName.Version.ToString();
+
+            // Viser hvilket runtime vi kører på; Hvis det ikke er Mono (UNIX) må det jo være .NET (Windows).
             ViewData["Runtime"] = isMono ? "Mono" : ".NET";
 
             return View();

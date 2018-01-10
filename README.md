@@ -1,5 +1,3 @@
 # TFT
-Testing
 
-Gad vide om dette virker,
-skal lige huske hvordan man gør. :P
+Dette er bare et test projekt til at komme igang igen med at bruge Git og hjemmeside.
